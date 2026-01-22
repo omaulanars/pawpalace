@@ -4,11 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tentang Kami - PawPalace</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Tentang Kami - PawPalace Pet Shop & Klinik Hewan</title>
+    <meta name="description"
+        content="Kenalan dengan PawPalace, pusat perawatan hewan terpercaya di Tulungagung. Temui tim dokter hewan berpengalaman kami dan pelajari visi misi kami untuk anabul Anda.">
+    <meta name="keywords"
+        content="tentang pawpalace, profil klinik hewan tulungagung, tim dokter hewan, visi misi pawpalace, pet shop terpercaya">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pawpalace-phi.vercel.app/about.html">
+    <meta name="author" content="PawPalace Team">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pawpalace-phi.vercel.app/about.html">
+    <meta property="og:title" content="Tentang PawPalace - Sahabat Terbaik Hewan Peliharaan">
+    <meta property="og:description"
+        content="Kami berdedikasi memberikan layanan kesehatan dan produk terbaik untuk hewan kesayangan Anda sejak 2022.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tentang PawPalace">
+    <meta name="twitter:description" content="Profil lengkap, visi misi, dan tim medis PawPalace.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <meta name="theme-color" content="#00897B">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "VeterinaryCare",
+        "name": "PawPalace",
+        "description": "Pet Shop dan Klinik Hewan yang menyediakan layanan kesehatan, grooming, dan perlengkapan hewan.",
+        "foundingDate": "2022",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jalan Teuku Umar Block B11",
+          "addressLocality": "Tulungagung",
+          "addressRegion": "Jawa Timur",
+          "addressCountry": "ID"
+        },
+        "telephone": "+62895639068080",
+        "priceRange": "$$"
+      }
+    }
+    </script>
 
     <style>
         /* --- SKEMA WARNA (TEAL & MINT) --- */
@@ -105,6 +155,29 @@
             color: var(--primary-color);
         }
 
+        /* Hierarchy Helper Classes for SEO Headings */
+        .h6-visual {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .h2-visual {
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .h4-visual {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .h5-visual {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
         .box-vision {
             padding: 2rem;
             border: 1px solid #eee;
@@ -134,11 +207,11 @@
             border: 4px solid var(--secondary-color);
         }
 
-        /* --- CTA Banner Style (Ditambahkan) --- */
+        /* --- CTA Banner Style --- */
         .cta-banner {
             background: linear-gradient(90deg, #00897B 0%, #4DB6AC 100%);
             border-radius: 20px;
-            padding: 4rem 1rem;
+            padding: 3rem 1rem;
             position: relative;
             overflow: hidden;
             color: white;
@@ -188,6 +261,11 @@
         footer a:hover {
             color: var(--primary-color);
             padding-left: 5px;
+        }
+
+        /* FIX: Agar QR Code tidak bergeser saat dihover */
+        footer a.footer-qr-link:hover {
+            padding-left: 0 !important;
         }
 
         /* --- Floating Buttons --- */
@@ -273,11 +351,12 @@
         <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
                 <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                    alt="Toko PawPalace" class="img-fluid about-img">
+                    alt="Interior Toko PawPalace Tulungagung" class="img-fluid about-img" width="600" height="400"
+                    loading="lazy">
             </div>
             <div class="col-lg-6">
-                <h6 class="text-uppercase fw-bold text-highlight mb-2">Cerita Kami</h6>
-                <h2 class="fw-bold mb-4">Lebih dari Sekadar Toko Hewan Peliharaan</h2>
+                <p class="text-highlight h6-visual mb-2">Cerita Kami</p>
+                <h2 class="h2-visual mb-4">Lebih dari Sekadar Toko Hewan Peliharaan</h2>
                 <p class="text-muted mb-4">
                     PawPalace didirikan pada tahun 2022 di Tulungagung dengan satu tujuan sederhana: memberikan yang
                     terbaik bagi sahabat berbulu kita. Kami percaya bahwa hewan peliharaan adalah bagian dari keluarga
@@ -289,11 +368,11 @@
                 </p>
                 <div class="row">
                     <div class="col-6">
-                        <h2 class="fw-bold text-highlight">5+</h2>
+                        <h3 class="fw-bold text-highlight h2-visual">5+</h3>
                         <p>Tahun Pengalaman</p>
                     </div>
                     <div class="col-6">
-                        <h2 class="fw-bold text-highlight">2000+</h2>
+                        <h3 class="fw-bold text-highlight h2-visual">2000+</h3>
                         <p>Pelanggan Puas</p>
                     </div>
                 </div>
@@ -307,7 +386,7 @@
                 <div class="col-md-4">
                     <div class="box-vision text-center">
                         <i class="fas fa-heart fa-3x text-highlight mb-3"></i>
-                        <h4 class="fw-bold">Visi Kami</h4>
+                        <h3 class="h4-visual">Visi Kami</h3>
                         <p class="text-muted">Menjadi pusat kebutuhan hewan peliharaan terlengkap dan terpercaya di
                             Indonesia yang mengutamakan kesejahteraan hewan.</p>
                     </div>
@@ -315,7 +394,7 @@
                 <div class="col-md-4">
                     <div class="box-vision text-center">
                         <i class="fas fa-hand-holding-medical fa-3x text-highlight mb-3"></i>
-                        <h4 class="fw-bold">Misi Kami</h4>
+                        <h3 class="h4-visual">Misi Kami</h3>
                         <p class="text-muted">Menyediakan produk berkualitas tinggi, edukasi yang tepat bagi pemilik
                             hewan, dan layanan kesehatan yang profesional.</p>
                     </div>
@@ -323,7 +402,7 @@
                 <div class="col-md-4">
                     <div class="box-vision text-center">
                         <i class="fas fa-smile fa-3x text-highlight mb-3"></i>
-                        <h4 class="fw-bold">Nilai Kami</h4>
+                        <h3 class="h4-visual">Nilai Kami</h3>
                         <p class="text-muted">Integritas, Kasih Sayang, dan Kualitas. Kami memperlakukan setiap hewan
                             yang datang seperti hewan kami sendiri.</p>
                     </div>
@@ -334,31 +413,31 @@
 
     <section class="container py-5 mb-4">
         <div class="text-center mb-5">
-            <h6 class="text-highlight fw-bold">TIM KAMI</h6>
-            <h2 class="fw-bold">Kenalan dengan Ahlinya</h2>
+            <p class="text-highlight h6-visual">TIM KAMI</p>
+            <h2 class="h2-visual">Kenalan dengan Ahlinya</h2>
         </div>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
-                        alt="Team 1" class="team-img">
-                    <h5 class="fw-bold">Drh. Budi Santoso</h5>
+                        alt="Foto Drh. Budi Santoso" class="team-img" width="150" height="150" loading="lazy">
+                    <h3 class="h5-visual mb-1">Drh. Budi Santoso</h3>
                     <p class="text-muted">Dokter Hewan Senior</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
-                        alt="Team 2" class="team-img">
-                    <h5 class="fw-bold">Siti Aminah</h5>
+                        alt="Foto Siti Aminah" class="team-img" width="150" height="150" loading="lazy">
+                    <h3 class="h5-visual mb-1">Siti Aminah</h3>
                     <p class="text-muted">Manajer Toko</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="team-card">
                     <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80"
-                        alt="Team 3" class="team-img">
-                    <h5 class="fw-bold">Rina Maharani</h5>
+                        alt="Foto Rina Maharani" class="team-img" width="150" height="150" loading="lazy">
+                    <h3 class="h5-visual mb-1">Rina Maharani</h3>
                     <p class="text-muted">Spesialis Grooming</p>
                 </div>
             </div>
@@ -369,7 +448,7 @@
         <div class="cta-banner">
             <div class="row justify-content-center">
                 <div class="col-lg-8">
-                    <h2 class="fw-bold mb-3">Siap Memberikan yang Terbaik untuk Hewan Peliharaan Anda?</h2>
+                    <h2 class="fw-bold mb-3">Siap Memberikan yang Terbaik?</h2>
                     <p class="lead mb-4 text-white-50">Kami siap membantu Anda menemukan produk yang tepat atau
                         memberikan layanan konsultasi kesehatan.</p>
                     <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20ingin%20tanya-tanya"
@@ -389,6 +468,7 @@
                     <p class="text-white-50">Jalan Teuku Umar Block B11<br>Tulungagung, Jawa Timur<br>Indonesia</p>
                     <small class="text-white-50">©2024 PawPalace Copyright.</small>
                 </div>
+
                 <div class="col-lg-3 mb-4">
                     <h5>Tautan</h5>
                     <a href="index.html">Beranda</a>
@@ -397,6 +477,7 @@
                     <a href="konsultasi.html">Konsultasi</a>
                     <a href="blog.html">Blog</a>
                 </div>
+
                 <div class="col-lg-3 mb-4">
                     <h5>Network</h5>
                     <a href="#">Instagram</a>
@@ -404,13 +485,14 @@
                     <a href="#">TikTok</a>
                     <a href="#">Tokopedia</a>
                 </div>
+
                 <div class="col-lg-2">
                     <h5>Lokasi Kami</h5>
                     <div class="bg-white p-2 rounded d-inline-block">
                         <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                            target="_blank">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                                alt="Scan QR Maps" class="img-fluid" width="100">
+                            target="_blank" class="footer-qr-link">
+                            <img src="img/maps.png" alt="Scan QR Maps PawPalace" class="img-fluid" width="100"
+                                height="100" loading="lazy">
                         </a>
                     </div>
                     <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
@@ -420,10 +502,11 @@
     </footer>
 
     <div class="floating-buttons">
-        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top">
+        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top" aria-label="Scroll ke atas">
             <i class="fas fa-arrow-up"></i>
         </a>
-        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float">
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float"
+            aria-label="Chat WhatsApp">
             <i class="fab fa-whatsapp fa-lg"></i>
         </a>
     </div>

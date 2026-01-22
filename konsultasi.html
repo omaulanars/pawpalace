@@ -4,11 +4,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konsultasi - PawPalace</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Konsultasi Dokter Hewan & Layanan Medis - PawPalace</title>
+    <meta name="description"
+        content="Jadwalkan konsultasi dokter hewan profesional di PawPalace Tulungagung. Melayani vaksinasi, sterilisasi, pemeriksaan umum, dan konsultasi gizi untuk anjing dan kucing.">
+    <meta name="keywords"
+        content="konsultasi dokter hewan, klinik hewan tulungagung, vaksin kucing, steril kucing anjing, dokter hewan terdekat, jadwal dokter hewan pawpalace">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pawpalace-phi.vercel.app/konsultasi.html">
+    <meta name="author" content="PawPalace Team">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pawpalace-phi.vercel.app/konsultasi.html">
+    <meta property="og:title" content="Konsultasi Kesehatan Hewan - PawPalace">
+    <meta property="og:description"
+        content="Booking jadwal dokter hewan dengan mudah. Layanan medis lengkap untuk kesehatan anabul tersayang.">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Layanan Medis PawPalace">
+    <meta name="twitter:description"
+        content="Klinik hewan terpercaya dengan fasilitas lengkap dan dokter berpengalaman.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <meta name="theme-color" content="#00897B">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "VeterinaryCare",
+      "name": "PawPalace Clinic",
+      "image": "https://pawpalace-phi.vercel.app/img/logo.png",
+      "description": "Layanan kesehatan hewan peliharaan meliputi vaksinasi, operasi steril, dan konsultasi gizi.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jalan Teuku Umar Block B11",
+        "addressLocality": "Tulungagung",
+        "addressRegion": "Jawa Timur",
+        "addressCountry": "ID"
+      },
+      "telephone": "+62895639068080",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        },
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "09:00",
+            "closes": "17:00"
+        }
+      ],
+      "availableService": [
+        { "@type": "MedicalProcedure", "name": "Vaksinasi Hewan" },
+        { "@type": "MedicalProcedure", "name": "Sterilisasi" },
+        { "@type": "MedicalProcedure", "name": "Pemeriksaan Umum" }
+      ]
+    }
+    </script>
 
     <style>
         /* --- SKEMA WARNA (TEAL & MINT) --- */
@@ -27,6 +93,19 @@
             color: var(--text-dark);
             overflow-x: hidden;
             padding-top: 70px;
+        }
+
+        /* Helper Classes for Visual Hierarchy (SEO safe) */
+        .h5-visual {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .h6-visual {
+            font-size: 1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         /* --- Navbar --- */
@@ -198,6 +277,11 @@
             padding-left: 5px;
         }
 
+        /* QR Code Static (No Hover Shift) */
+        footer a.footer-qr-link:hover {
+            padding-left: 0 !important;
+        }
+
         /* --- Floating Buttons --- */
         .floating-buttons {
             position: fixed;
@@ -286,28 +370,28 @@
             <div class="col-md-3">
                 <div class="service-card">
                     <i class="fas fa-stethoscope service-icon"></i>
-                    <h5 class="fw-bold">Pemeriksaan Umum</h5>
+                    <h3 class="h5-visual fw-bold">Pemeriksaan Umum</h3>
                     <p class="text-muted small">Cek kondisi kesehatan rutin untuk deteksi dini penyakit.</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="service-card">
                     <i class="fas fa-syringe service-icon"></i>
-                    <h5 class="fw-bold">Vaksinasi</h5>
+                    <h3 class="h5-visual fw-bold">Vaksinasi</h3>
                     <p class="text-muted small">Lengkap mulai dari vaksin rabies hingga vaksin tahunan.</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="service-card">
                     <i class="fas fa-cut service-icon"></i>
-                    <h5 class="fw-bold">Operasi Steril</h5>
+                    <h3 class="h5-visual fw-bold">Operasi Steril</h3>
                     <p class="text-muted small">Layanan sterilisasi aman dengan dokter berpengalaman.</p>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="service-card">
                     <i class="fas fa-notes-medical service-icon"></i>
-                    <h5 class="fw-bold">Konsultasi Gizi</h5>
+                    <h3 class="h5-visual fw-bold">Konsultasi Gizi</h3>
                     <p class="text-muted small">Saran diet dan nutrisi terbaik untuk berat badan ideal.</p>
                 </div>
             </div>
@@ -318,7 +402,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
-                    <h6 class="text-uppercase fw-bold" style="color: var(--primary-color);">Booking Online</h6>
+                    <p class="h6-visual" style="color: var(--primary-color);">Booking Online</p>
                     <h2 class="fw-bold mb-4">Jadwalkan Kunjungan Anda</h2>
                     <p class="text-muted mb-4">Hindari antrian panjang dengan melakukan reservasi online. Isi formulir
                         di samping dan kami akan mengonfirmasi jadwal Anda melalui WhatsApp.</p>
@@ -353,7 +437,7 @@
 
                 <div class="col-lg-6">
                     <div class="booking-card">
-                        <h4 class="fw-bold mb-4 text-center">Formulir Reservasi</h4>
+                        <h3 class="h4 fw-bold mb-4 text-center">Formulir Reservasi</h3>
                         <form id="bookingForm">
                             <div class="row">
                                 <div class="col-md-6">
@@ -437,9 +521,9 @@
                     <h5>Lokasi Kami</h5>
                     <div class="bg-white p-2 rounded d-inline-block">
                         <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                            target="_blank">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                                alt="Scan QR Maps" class="img-fluid" width="100">
+                            target="_blank" class="footer-qr-link">
+                            <img src="img/maps.png" alt="Scan QR Maps PawPalace" class="img-fluid" width="100"
+                                height="100" loading="lazy">
                         </a>
                     </div>
                     <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
@@ -449,10 +533,11 @@
     </footer>
 
     <div class="floating-buttons">
-        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top">
+        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top" aria-label="Scroll ke atas">
             <i class="fas fa-arrow-up"></i>
         </a>
-        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float">
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float"
+            aria-label="Chat WhatsApp">
             <i class="fab fa-whatsapp fa-lg"></i>
         </a>
     </div>
@@ -471,19 +556,14 @@
         };
 
         // 2. Disable Past Dates (Fitur Baru)
-        // Ambil tanggal hari ini dalam format YYYY-MM-DD
         const dateInput = document.getElementById('visitDate');
         const today = new Date();
         const yyyy = today.getFullYear();
-        // getMonth() dimulai dari 0, jadi tambah 1. padStart memastikan ada angka 0 di depan jika digit tunggal.
         const mm = String(today.getMonth() + 1).padStart(2, '0');
         const dd = String(today.getDate()).padStart(2, '0');
 
         const minDate = `${yyyy}-${mm}-${dd}`;
-
-        // Set atribut 'min' pada input tanggal
         dateInput.min = minDate;
-
 
         // 3. Form to WhatsApp Logic
         const bookingForm = document.getElementById('bookingForm');

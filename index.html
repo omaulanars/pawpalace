@@ -4,11 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PawPalace - Sahabat Terbaik Hewan Peliharaan</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>PawPalace - Pet Shop & Klinik Hewan Terpercaya</title>
+    <meta name="description"
+        content="PawPalace menyediakan perlengkapan hewan peliharaan terlengkap dan layanan dokter hewan berpengalaman di Tulungagung. Belanja makanan kucing, anjing, dan booking konsultasi online.">
+    <meta name="keywords"
+        content="pet shop, klinik hewan, dokter hewan tulungagung, makanan kucing, makanan anjing, grooming hewan, pawpalace">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pawpalace-phi.vercel.app/">
+    <meta name="author" content="PawPalace Team">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pawpalace-phi.vercel.app/">
+    <meta property="og:title" content="PawPalace - Sahabat Terbaik Hewan Peliharaan">
+    <meta property="og:description"
+        content="Pusat kebutuhan anabul dan layanan kesehatan hewan terbaik. Diskon 40% untuk perawatan pertama!">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="PawPalace - Pet Shop & Klinik Hewan">
+    <meta name="twitter:description" content="Belanja kebutuhan hewan dan konsultasi dokter hewan dalam satu tempat.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <meta name="theme-color" content="#00897B">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["PetStore", "VeterinaryCare"],
+      "name": "PawPalace",
+      "image": "https://pawpalace-phi.vercel.app/img/logo.png",
+      "description": "Pet Shop dan Klinik Hewan terlengkap dengan layanan konsultasi dokter hewan dan grooming.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jalan Teuku Umar Block B11",
+        "addressLocality": "Tulungagung",
+        "addressRegion": "Jawa Timur",
+        "addressCountry": "ID"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-8.0746", 
+        "longitude": "111.9067"
+      },
+      "url": "https://pawpalace-phi.vercel.app/",
+      "telephone": "+62895639068080",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "20:00"
+        }
+      ],
+      "priceRange": "$$"
+    }
+    </script>
 
     <style>
         /* --- SKEMA WARNA (TEAL & MINT) --- */
@@ -27,6 +87,27 @@
             color: var(--text-dark);
             overflow-x: hidden;
             padding-top: 70px;
+        }
+
+        /* --- Tipografi Headings (Override untuk SEO Hierarchy) --- */
+        /* Kita ubah tag HTML jadi H2/H3 untuk SEO, tapi visual tetap seperti H6/H5 desain lama */
+        h2.section-title-seo {
+            font-size: 2rem;
+            /* Ukuran visual H2 */
+            font-weight: 800;
+        }
+
+        h3.feature-title-seo {
+            font-size: 1rem;
+            /* Ukuran visual H6 */
+            font-weight: 700;
+            margin-bottom: 0;
+        }
+
+        h3.product-title-seo {
+            font-size: 1rem;
+            /* Ukuran visual H6 */
+            font-weight: 700;
         }
 
         /* --- Navbar --- */
@@ -277,7 +358,6 @@
             right: 10%;
             z-index: 2;
             border-color: #fff;
-            /* Border putih agar kontras dengan img-1 */
         }
 
         .doctor-img-1:hover,
@@ -396,6 +476,11 @@
             padding-left: 5px;
         }
 
+        /* FIX: Agar QR Code tidak bergeser saat dihover */
+        footer a.footer-qr-link:hover {
+            padding-left: 0 !important;
+        }
+
         /* --- Floating Buttons --- */
         .floating-buttons {
             position: fixed;
@@ -487,7 +572,8 @@
     <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.html">PawPalace.</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -498,12 +584,12 @@
                     <li class="nav-item"><a class="nav-link" href="konsultasi.html">Konsultasi</a></li>
                     <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
                 </ul>
-                <a href="#contact-footer" class="btn btn-contact">Kontak</a>
+                <a href="#contact-footer" class="btn btn-contact" aria-label="Hubungi Kami">Kontak</a>
             </div>
         </div>
     </nav>
 
-    <section class="hero-section">
+    <header class="hero-section">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0">
@@ -512,14 +598,16 @@
                     <p class="text-muted mb-4 lead">Beli perlengkapan hewan peliharaan Anda sekarang sebelum kehabisan.
                         Kualitas premium untuk sahabat setia Anda.</p>
                     <div class="d-flex flex-wrap gap-2">
-                        <a href="toko.html" class="btn btn-primary-custom">Lihat Produk</a>
+                        <a href="toko.html" class="btn btn-primary-custom" aria-label="Lihat Produk">Lihat Produk</a>
                         <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20ingin%20konsultasi"
-                            target="_blank" class="btn btn-outline-custom">Konsultasi WA</a>
+                            target="_blank" class="btn btn-outline-custom" aria-label="Konsultasi WhatsApp">Konsultasi
+                            WA</a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
                     <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                        alt="Hewan Peliharaan" class="img-fluid rounded-4 shadow-lg">
+                        alt="Kumpulan hewan peliharaan lucu di PawPalace" class="img-fluid rounded-4 shadow-lg"
+                        width="600" height="400">
                 </div>
             </div>
 
@@ -527,39 +615,39 @@
                 <div class="col-3 col-md-2">
                     <div class="category-item">
                         <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=100&q=80"
-                            alt="Kucing">
+                            alt="Perlengkapan Kucing" width="80" height="80" loading="lazy">
                         <p class="category-text">Kucing</p>
                     </div>
                 </div>
                 <div class="col-3 col-md-2">
                     <div class="category-item">
                         <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?auto=format&fit=crop&w=100&q=80"
-                            alt="Anjing">
+                            alt="Perlengkapan Anjing" width="80" height="80" loading="lazy">
                         <p class="category-text">Anjing</p>
                     </div>
                 </div>
                 <div class="col-3 col-md-2">
                     <div class="category-item">
                         <img src="https://images.unsplash.com/photo-1585110396067-c1858dd29d5d?auto=format&fit=crop&w=100&q=80"
-                            alt="Kelinci">
+                            alt="Perlengkapan Kelinci" width="80" height="80" loading="lazy">
                         <p class="category-text">Kelinci</p>
                     </div>
                 </div>
                 <div class="col-3 col-md-2">
                     <div class="category-item">
                         <img src="https://images.unsplash.com/photo-1522858547137-f1dcec554f55?auto=format&fit=crop&w=100&q=80"
-                            alt="Burung">
+                            alt="Perlengkapan Burung" width="80" height="80" loading="lazy">
                         <p class="category-text">Burung</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
     <section id="about" class="py-5">
         <div class="container">
             <div class="text-center mb-4">
-                <h4 class="fw-bold text-highlight">Mengapa Memilih Kami?</h4>
+                <h2 class="section-title-seo text-highlight">Mengapa Memilih Kami?</h2>
                 <p class="text-muted">Tentang layanan unggulan PawPalace</p>
             </div>
             <div class="row">
@@ -567,7 +655,7 @@
                     <div class="feature-box">
                         <i class="fa-solid fa-box-open feature-icon"></i>
                         <div>
-                            <h6 class="fw-bold mb-0">Packaging Aman</h6>
+                            <h3 class="feature-title-seo mb-0">Packaging Aman</h3>
                             <small class="text-muted">Garansi barang selamat sampai tujuan</small>
                         </div>
                     </div>
@@ -576,7 +664,7 @@
                     <div class="feature-box">
                         <i class="fa-solid fa-truck-fast feature-icon"></i>
                         <div>
-                            <h6 class="fw-bold mb-0">Pengiriman Cepat</h6>
+                            <h3 class="feature-title-seo mb-0">Pengiriman Cepat</h3>
                             <small class="text-muted">Sampai ke tujuan Anda tepat waktu</small>
                         </div>
                     </div>
@@ -585,7 +673,7 @@
                     <div class="feature-box">
                         <i class="fa-solid fa-medal feature-icon"></i>
                         <div>
-                            <h6 class="fw-bold mb-0">Produk Original</h6>
+                            <h3 class="feature-title-seo mb-0">Produk Original</h3>
                             <small class="text-muted">Jaminan 100% Asli untuk anabul</small>
                         </div>
                     </div>
@@ -612,14 +700,15 @@
                         <span class="badge-new position-absolute top-0 start-0 m-3">Diskon</span>
                         <a href="toko.html">
                             <img src="https://placehold.co/200x200/png?text=Royal+Canin" class="product-img img-fluid"
-                                alt="Produk 1">
+                                alt="Makanan Kucing Royal Canin" width="200" height="200" loading="lazy">
                         </a>
                         <div>
-                            <h6 class="fw-bold">Royal Canin Adult</h6>
+                            <h3 class="product-title-seo">Royal Canin Adult</h3>
                             <p class="text-price mb-1">Rp 75.000</p>
                         </div>
                         <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Royal%20Canin%20Adult"
-                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2">
+                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2"
+                            aria-label="Pesan Royal Canin via WhatsApp">
                             <i class="fab fa-whatsapp me-1"></i> Pesan via WA
                         </a>
                     </div>
@@ -629,14 +718,15 @@
                     <div class="product-card text-center">
                         <a href="toko.html">
                             <img src="https://placehold.co/200x200/png?text=Whiskas" class="product-img img-fluid"
-                                alt="Produk 2">
+                                alt="Makanan Kucing Whiskas" width="200" height="200" loading="lazy">
                         </a>
                         <div>
-                            <h6 class="fw-bold">Whiskas Tuna</h6>
+                            <h3 class="product-title-seo">Whiskas Tuna</h3>
                             <p class="text-price mb-1">Rp 45.000</p>
                         </div>
                         <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Whiskas%20Tuna"
-                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2">
+                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2"
+                            aria-label="Pesan Whiskas via WhatsApp">
                             <i class="fab fa-whatsapp me-1"></i> Pesan via WA
                         </a>
                     </div>
@@ -646,14 +736,15 @@
                     <div class="product-card text-center">
                         <a href="toko.html">
                             <img src="https://placehold.co/200x200/png?text=Pedigree" class="product-img img-fluid"
-                                alt="Produk 3">
+                                alt="Makanan Anjing Pedigree" width="200" height="200" loading="lazy">
                         </a>
                         <div>
-                            <h6 class="fw-bold">Pedigree Beef</h6>
+                            <h3 class="product-title-seo">Pedigree Beef</h3>
                             <p class="text-price mb-1">Rp 55.000</p>
                         </div>
                         <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Pedigree%20Beef"
-                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2">
+                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2"
+                            aria-label="Pesan Pedigree via WhatsApp">
                             <i class="fab fa-whatsapp me-1"></i> Pesan via WA
                         </a>
                     </div>
@@ -663,14 +754,15 @@
                     <div class="product-card text-center">
                         <a href="toko.html">
                             <img src="https://placehold.co/200x200/png?text=Me-O" class="product-img img-fluid"
-                                alt="Produk 4">
+                                alt="Makanan Kucing Me-O" width="200" height="200" loading="lazy">
                         </a>
                         <div>
-                            <h6 class="fw-bold">Me-O Creamy</h6>
+                            <h3 class="product-title-seo">Me-O Creamy</h3>
                             <p class="text-price mb-1">Rp 25.000</p>
                         </div>
                         <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Me-O%20Creamy"
-                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2">
+                            target="_blank" class="btn btn-sm btn-product-wa w-100 mt-2"
+                            aria-label="Pesan Me-O via WhatsApp">
                             <i class="fab fa-whatsapp me-1"></i> Pesan via WA
                         </a>
                     </div>
@@ -684,16 +776,18 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="ps-lg-4">
-                        <h5 class="text-highlight fw-bold mb-2">TIM MEDIS KAMI</h5>
+                        <p class="text-highlight fw-bold mb-2">TIM MEDIS KAMI</p>
                         <h2 class="fw-bold mb-3 display-6">Dokter Hewan <br>Berpengalaman</h2>
                         <p class="text-muted mb-5">Tim dokter kami siap membantu memberikan solusi kesehatan terbaik
                             untuk anabul kesayangan Anda.</p>
 
                         <div class="doctor-composition">
                             <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=400&q=80"
-                                alt="Drh. Budi" class="doctor-img-1">
+                                alt="Drh. Budi - Dokter Hewan PawPalace" class="doctor-img-1" width="220" height="220"
+                                loading="lazy">
                             <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=400&q=80"
-                                alt="Drh. Siti" class="doctor-img-2">
+                                alt="Drh. Siti - Dokter Hewan PawPalace" class="doctor-img-2" width="250" height="250"
+                                loading="lazy">
                         </div>
                     </div>
                 </div>
@@ -734,7 +828,7 @@
     <section class="container">
         <div class="cta-banner text-center">
             <img src="https://placehold.co/300x400/transparent/png?text=Dog+PNG" class="cta-img-left d-none d-md-block"
-                alt="Anjing">
+                alt="Gambar Anjing Lucu" width="300" height="400" loading="lazy">
             <div class="cta-content">
                 <h2 class="fw-bold display-5">-40% DISKON</h2>
                 <p class="lead mb-4">Dapatkan diskon untuk setiap perawatan di salon kami :)</p>
@@ -744,7 +838,7 @@
                 </a>
             </div>
             <img src="https://placehold.co/300x400/transparent/png?text=Cat+PNG" class="cta-img-right d-none d-md-block"
-                alt="Kucing">
+                alt="Gambar Kucing Lucu" width="300" height="400" loading="lazy">
         </div>
     </section>
 
@@ -769,6 +863,7 @@
                     <p class="text-white-50">Jalan Teuku Umar Block B11<br>Tulungagung, Jawa Timur<br>Indonesia</p>
                     <small class="text-white-50">©2024 PawPalace Copyright.</small>
                 </div>
+
                 <div class="col-lg-3 mb-4">
                     <h5>Tautan</h5>
                     <a href="index.html">Beranda</a>
@@ -777,20 +872,20 @@
                     <a href="konsultasi.html">Konsultasi</a>
                     <a href="blog.html">Blog</a>
                 </div>
+
                 <div class="col-lg-3 mb-4">
                     <h5>Network</h5>
-                    <a href="#">Instagram</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">Tokopedia</a>
+                    <a href="#" aria-label="Instagram">Instagram</a>
+                    <a href="#" aria-label="Facebook">Facebook</a>
+                    <a href="#" aria-label="TikTok">TikTok</a>
+                    <a href="#" aria-label="Tokopedia">Tokopedia</a>
                 </div>
+
                 <div class="col-lg-2">
                     <h5>Lokasi Kami</h5>
                     <div class="bg-white p-2 rounded d-inline-block">
-                        <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                            target="_blank">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                                alt="Scan QR Maps" class="img-fluid" width="100">
+                        <a href="https://goo.gl/maps/placeholder" target="_blank" class="footer-qr-link">
+                            <img src="img/maps.png" alt="Scan QR Maps" class="img-fluid" width="100" height="100">
                         </a>
                     </div>
                     <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
@@ -800,10 +895,11 @@
     </footer>
 
     <div class="floating-buttons">
-        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top">
+        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top" aria-label="Scroll ke atas">
             <i class="fas fa-arrow-up"></i>
         </a>
-        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float">
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float"
+            aria-label="Chat WhatsApp">
             <i class="fab fa-whatsapp fa-lg"></i>
         </a>
     </div>

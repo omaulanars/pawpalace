@@ -4,11 +4,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toko - PawPalace</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Toko & Katalog Produk - PawPalace</title>
+    <meta name="description"
+        content="Belanja kebutuhan hewan peliharaan terlengkap di PawPalace. Jual makanan kucing (Royal Canin, Whiskas), makanan anjing, vitamin, shampoo, dan aksesoris dengan harga terbaik.">
+    <meta name="keywords"
+        content="toko hewan tulungagung, pet shop online, jual makanan kucing, royal canin murah, whiskas sachet, pasir kucing, aksesoris hewan">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://pawpalace-phi.vercel.app/toko.html">
+    <meta name="author" content="PawPalace Team">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://pawpalace-phi.vercel.app/toko.html">
+    <meta property="og:title" content="Katalog Produk PawPalace - Pet Shop Terlengkap">
+    <meta property="og:description"
+        content="Temukan makanan dan perlengkapan terbaik untuk anabul kesayangan Anda. Promo diskon setiap hari!">
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Belanja Kebutuhan Hewan di PawPalace">
+    <meta name="twitter:description" content="Katalog lengkap makanan kucing, anjing, dan perlengkapan grooming.">
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png">
+    <meta name="theme-color" content="#00897B">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Katalog Produk PawPalace",
+      "description": "Daftar lengkap produk makanan dan perlengkapan hewan peliharaan.",
+      "url": "https://pawpalace-phi.vercel.app/toko.html",
+      "mainEntity": {
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": "Product",
+              "name": "Royal Canin Indoor 27",
+              "image": "https://placehold.co/200x200/png?text=Royal+Canin",
+              "offers": { "@type": "Offer", "price": "85000", "priceCurrency": "IDR" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": "Product",
+              "name": "Whiskas Tuna Sachet",
+              "image": "https://placehold.co/200x200/png?text=Whiskas",
+              "offers": { "@type": "Offer", "price": "7000", "priceCurrency": "IDR" }
+            }
+          }
+        ]
+      }
+    }
+    </script>
 
     <style>
         /* --- SKEMA WARNA (TEAL & MINT) --- */
@@ -128,7 +191,7 @@
             color: var(--primary-color);
         }
 
-        /* Product Card */
+        /* Product Card - PERBAIKAN POSISI GAMBAR */
         .product-card {
             background: #fff;
             border: 1px solid #eee;
@@ -139,6 +202,8 @@
             flex-direction: column;
             justify-content: space-between;
             transition: 0.3s;
+            text-align: center;
+            /* Perbaikan: Memastikan semua konten rata tengah */
         }
 
         .product-card:hover {
@@ -151,6 +216,9 @@
             height: 200px;
             object-fit: contain;
             margin-bottom: 15px;
+            margin-left: auto;
+            /* Perbaikan: Memastikan gambar block rata tengah */
+            margin-right: auto;
         }
 
         .text-price {
@@ -188,6 +256,17 @@
             color: white;
         }
 
+        /* Helper Classes for Visual Hierarchy (SEO safe) */
+        .h5-visual {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .h6-visual {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
         /* --- Footer --- */
         footer {
             background-color: #222;
@@ -213,6 +292,11 @@
         footer a:hover {
             color: var(--primary-color);
             padding-left: 5px;
+        }
+
+        /* QR Code Static */
+        footer a.footer-qr-link:hover {
+            padding-left: 0 !important;
         }
 
         /* --- Floating Buttons --- */
@@ -284,7 +368,7 @@
 
     <header class="shop-header">
         <div class="container text-center">
-            <h2 class="fw-bold">Katalog Produk</h2>
+            <h1 class="fw-bold">Katalog Produk</h1>
             <p class="text-muted">Temukan kebutuhan terbaik untuk hewan peliharaan Anda</p>
         </div>
     </header>
@@ -293,7 +377,7 @@
         <div class="row">
             <div class="col-lg-3 mb-4">
                 <div class="filter-card">
-                    <h5 class="filter-title">Cari Produk</h5>
+                    <h3 class="filter-title h5-visual">Cari Produk</h3>
                     <div class="input-group">
                         <input type="text" id="searchInput" class="form-control" placeholder="Cth: Makanan Kucing...">
                     </div>
@@ -308,7 +392,7 @@
                         <i class="fas fa-chevron-down"></i>
                     </button>
 
-                    <h5 class="filter-title d-none d-lg-block">Kategori</h5>
+                    <h3 class="filter-title h5-visual d-none d-lg-block">Kategori</h3>
 
                     <div class="collapse d-lg-block mt-3 mt-lg-0" id="mobileCategoryCollapse">
                         <div class="list-group list-group-flush" id="categoryFilters">
@@ -341,9 +425,9 @@
                         <div class="product-card position-relative">
                             <span class="badge-sale">Promo</span>
                             <img src="https://placehold.co/200x200/png?text=Royal+Canin" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Makanan Kucing Royal Canin" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Royal Canin Indoor 27</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Royal Canin Indoor 27</h3>
                                 <p class="text-muted small mb-2">Makanan Kucing (Dry)</p>
                                 <p class="text-price mb-3">Rp 85.000</p>
                             </div>
@@ -358,9 +442,9 @@
                         data-name="Whiskas Tuna Sachet">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Whiskas" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Makanan Kucing Whiskas" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Whiskas Tuna Sachet</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Whiskas Tuna Sachet</h3>
                                 <p class="text-muted small mb-2">Makanan Kucing (Wet)</p>
                                 <p class="text-price mb-3">Rp 7.000</p>
                             </div>
@@ -375,9 +459,9 @@
                         data-name="Pedigree Chicken 1kg">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Pedigree" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Makanan Anjing Pedigree" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Pedigree Chicken 1kg</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Pedigree Chicken 1kg</h3>
                                 <p class="text-muted small mb-2">Makanan Anjing</p>
                                 <p class="text-price mb-3">Rp 55.000</p>
                             </div>
@@ -392,9 +476,9 @@
                         data-name="Me-O Creamy Treats">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Me-O" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Snack Kucing Me-O" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Me-O Creamy Treats</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Me-O Creamy Treats</h3>
                                 <p class="text-muted small mb-2">Snack Kucing</p>
                                 <p class="text-price mb-3">Rp 25.000</p>
                             </div>
@@ -409,9 +493,9 @@
                         data-name="Shampoo Anti Kutu">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Shampoo" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Shampoo Hewan Anti Kutu" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Shampoo Anti Kutu</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Shampoo Anti Kutu</h3>
                                 <p class="text-muted small mb-2">Aksesoris & Kebersihan</p>
                                 <p class="text-price mb-3">Rp 35.000</p>
                             </div>
@@ -426,9 +510,9 @@
                         data-name="Pasir Zeolit 5kg">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Pasir" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Pasir Kucing Zeolit" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Pasir Zeolit 5kg</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Pasir Zeolit 5kg</h3>
                                 <p class="text-muted small mb-2">Aksesoris & Kebersihan</p>
                                 <p class="text-price mb-3">Rp 20.000</p>
                             </div>
@@ -443,9 +527,9 @@
                         data-name="Kalung Lonceng">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Kalung" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Kalung Hewan Lonceng" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Kalung Lonceng</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Kalung Lonceng</h3>
                                 <p class="text-muted small mb-2">Aksesoris & Kebersihan</p>
                                 <p class="text-price mb-3">Rp 15.000</p>
                             </div>
@@ -461,9 +545,9 @@
                         <div class="product-card position-relative">
                             <span class="badge-sale">Best Seller</span>
                             <img src="https://placehold.co/200x200/png?text=Bolt" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Makanan Anjing Bolt" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Bolt Dog Food 1kg</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Bolt Dog Food 1kg</h3>
                                 <p class="text-muted small mb-2">Makanan Anjing</p>
                                 <p class="text-price mb-3">Rp 18.000</p>
                             </div>
@@ -478,9 +562,9 @@
                         data-name="Vitamin Bulu & Kulit">
                         <div class="product-card">
                             <img src="https://placehold.co/200x200/png?text=Vitamin" class="product-img img-fluid"
-                                alt="Produk">
+                                alt="Vitamin Bulu Hewan" width="200" height="200" loading="lazy">
                             <div>
-                                <h6 class="fw-bold mb-1">Vitamin Bulu & Kulit</h6>
+                                <h3 class="fw-bold mb-1 h6-visual">Vitamin Bulu & Kulit</h3>
                                 <p class="text-muted small mb-2">Vitamin & Obat</p>
                                 <p class="text-price mb-3">Rp 45.000</p>
                             </div>
@@ -528,9 +612,9 @@
                     <h5>Lokasi Kami</h5>
                     <div class="bg-white p-2 rounded d-inline-block">
                         <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                            target="_blank">
-                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
-                                alt="Scan QR Maps" class="img-fluid" width="100">
+                            target="_blank" class="footer-qr-link">
+                            <img src="img/maps.png" alt="Scan QR Maps" class="img-fluid" width="100" height="100"
+                                loading="lazy">
                         </a>
                     </div>
                     <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
