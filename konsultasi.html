@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konsultasi - PawPalace</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- SKEMA WARNA (TEAL & MINT) --- */
+        :root {
+            --primary-color: #00897B;
+            /* Teal */
+            --secondary-color: #E0F2F1;
+            /* Mint Muda */
+            --text-dark: #2D2D2D;
+            --wa-color: #25D366;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .btn-contact {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            background-color: var(--secondary-color);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .breadcrumb-custom {
+            justify-content: center;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Services Cards --- */
+        .service-card {
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .service-card:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Consultation Form --- */
+        .form-section {
+            background-color: #f8f9fa;
+        }
+
+        .booking-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-control,
+        .form-select {
+            border-radius: 10px;
+            padding: 12px;
+            border: 1px solid #dee2e6;
+            margin-bottom: 1rem;
+        }
+
+        .form-control:focus,
+        .form-select:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(0, 137, 123, 0.25);
+        }
+
+        .btn-submit-wa {
+            background-color: var(--wa-color);
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 10px;
+            width: 100%;
+            border: none;
+            transition: 0.3s;
+        }
+
+        .btn-submit-wa:hover {
+            background-color: #1ebc57;
+            transform: translateY(-2px);
+        }
+
+        /* --- Schedule Table --- */
+        .schedule-table thead {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 15px;
+            text-align: center;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 4rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* --- Floating Buttons --- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-float {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-wa-float {
+            background-color: var(--wa-color);
+        }
+
+        .btn-wa-float:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+        }
+
+        .btn-scroll-top {
+            background-color: var(--primary-color);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PawPalace.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="toko.html">Toko</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="konsultasi.html">Konsultasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+                <a href="#contact-footer" class="btn btn-contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Konsultasi & Layanan Medis</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom">
+                    <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Konsultasi</li>
+                </ol>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container pb-5">
+        <div class="text-center mb-5">
+            <h2 class="fw-bold">Layanan Kami</h2>
+            <p class="text-muted">Solusi kesehatan lengkap untuk hewan kesayangan Anda</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-stethoscope service-icon"></i>
+                    <h5 class="fw-bold">Pemeriksaan Umum</h5>
+                    <p class="text-muted small">Cek kondisi kesehatan rutin untuk deteksi dini penyakit.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-syringe service-icon"></i>
+                    <h5 class="fw-bold">Vaksinasi</h5>
+                    <p class="text-muted small">Lengkap mulai dari vaksin rabies hingga vaksin tahunan.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-cut service-icon"></i>
+                    <h5 class="fw-bold">Operasi Steril</h5>
+                    <p class="text-muted small">Layanan sterilisasi aman dengan dokter berpengalaman.</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="service-card">
+                    <i class="fas fa-notes-medical service-icon"></i>
+                    <h5 class="fw-bold">Konsultasi Gizi</h5>
+                    <p class="text-muted small">Saran diet dan nutrisi terbaik untuk berat badan ideal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="form-section py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <h6 class="text-uppercase fw-bold" style="color: var(--primary-color);">Booking Online</h6>
+                    <h2 class="fw-bold mb-4">Jadwalkan Kunjungan Anda</h2>
+                    <p class="text-muted mb-4">Hindari antrian panjang dengan melakukan reservasi online. Isi formulir
+                        di samping dan kami akan mengonfirmasi jadwal Anda melalui WhatsApp.</p>
+
+                    <div class="card border-0 shadow-sm mt-4">
+                        <div class="card-body p-0">
+                            <table class="table schedule-table table-striped mb-0 rounded overflow-hidden">
+                                <thead>
+                                    <tr>
+                                        <th>Hari</th>
+                                        <th>Jam Buka</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Senin - Jumat</td>
+                                        <td>08:00 - 20:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sabtu</td>
+                                        <td>09:00 - 17:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Minggu</td>
+                                        <td>10:00 - 15:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="booking-card">
+                        <h4 class="fw-bold mb-4 text-center">Formulir Reservasi</h4>
+                        <form id="bookingForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Nama Pemilik</label>
+                                    <input type="text" id="ownerName" class="form-control" placeholder="Nama Anda"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">No. WhatsApp</label>
+                                    <input type="tel" id="ownerPhone" class="form-control" placeholder="08xx..."
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Nama Hewan</label>
+                                    <input type="text" id="petName" class="form-control" placeholder="Nama Anabul"
+                                        required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label small fw-bold">Jenis Hewan</label>
+                                    <select id="petType" class="form-select">
+                                        <option value="Kucing">Kucing</option>
+                                        <option value="Anjing">Anjing</option>
+                                        <option value="Kelinci">Kelinci</option>
+                                        <option value="Lainnya">Lainnya</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <label class="form-label small fw-bold">Jenis Layanan</label>
+                            <select id="serviceType" class="form-select">
+                                <option value="Konsultasi Rutin">Konsultasi / Periksa Rutin</option>
+                                <option value="Vaksinasi">Vaksinasi</option>
+                                <option value="Sakit/Darurat">Sakit / Butuh Pengobatan</option>
+                                <option value="Grooming">Grooming / Mandi</option>
+                            </select>
+
+                            <label class="form-label small fw-bold">Tanggal Rencana Datang</label>
+                            <input type="date" id="visitDate" class="form-control" required>
+
+                            <label class="form-label small fw-bold">Keluhan / Catatan Tambahan</label>
+                            <textarea id="notes" class="form-control" rows="3"
+                                placeholder="Ceritakan kondisi hewan..."></textarea>
+
+                            <button type="submit" class="btn-submit-wa mt-3">
+                                <i class="fab fa-whatsapp me-2"></i> Kirim Booking via WhatsApp
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white fw-bold mb-3">PawPalace.</h3>
+                    <p class="text-white-50">Jalan Teuku Umar Block B11<br>Tulungagung, Jawa Timur<br>Indonesia</p>
+                    <small class="text-white-50">©2024 PawPalace Copyright.</small>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Tautan</h5>
+                    <a href="index.html">Beranda</a>
+                    <a href="about.html">Tentang Kami</a>
+                    <a href="toko.html">Toko</a>
+                    <a href="konsultasi.html">Konsultasi</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Network</h5>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">Tokopedia</a>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Lokasi Kami</h5>
+                    <div class="bg-white p-2 rounded d-inline-block">
+                        <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
+                            target="_blank">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
+                                alt="Scan QR Maps" class="img-fluid" width="100">
+                        </a>
+                    </div>
+                    <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float">
+            <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 1. Scroll Top Logic
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        };
+
+        // 2. Disable Past Dates (Fitur Baru)
+        // Ambil tanggal hari ini dalam format YYYY-MM-DD
+        const dateInput = document.getElementById('visitDate');
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        // getMonth() dimulai dari 0, jadi tambah 1. padStart memastikan ada angka 0 di depan jika digit tunggal.
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+
+        const minDate = `${yyyy}-${mm}-${dd}`;
+
+        // Set atribut 'min' pada input tanggal
+        dateInput.min = minDate;
+
+
+        // 3. Form to WhatsApp Logic
+        const bookingForm = document.getElementById('bookingForm');
+
+        bookingForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const ownerName = document.getElementById('ownerName').value;
+            const ownerPhone = document.getElementById('ownerPhone').value;
+            const petName = document.getElementById('petName').value;
+            const petType = document.getElementById('petType').value;
+            const serviceType = document.getElementById('serviceType').value;
+            const visitDate = document.getElementById('visitDate').value;
+            const notes = document.getElementById('notes').value;
+
+            const text = `Halo Admin PawPalace, saya ingin booking konsultasi:%0A%0A` +
+                `👤 *Nama Pemilik:* ${ownerName}%0A` +
+                `📱 *No HP:* ${ownerPhone}%0A` +
+                `🐾 *Nama Hewan:* ${petName} (${petType})%0A` +
+                `🏥 *Layanan:* ${serviceType}%0A` +
+                `📅 *Tanggal:* ${visitDate}%0A` +
+                `📝 *Keluhan:* ${notes}%0A%0A` +
+                `Mohon konfirmasi jadwalnya ya. Terima kasih!`;
+
+            const waNumber = "62895639068080";
+            const waUrl = `https://wa.me/${waNumber}?text=${text}`;
+
+            window.open(waUrl, '_blank');
+        });
+    </script>
+</body>
+
+</html>

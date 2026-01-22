@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami - PawPalace</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- SKEMA WARNA (TEAL & MINT) --- */
+        :root {
+            --primary-color: #00897B;
+            /* Teal */
+            --secondary-color: #E0F2F1;
+            /* Mint Muda */
+            --text-dark: #2D2D2D;
+            --wa-color: #25D366;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #ffffff;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .btn-contact {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- Page Header --- */
+        .page-header {
+            background-color: var(--secondary-color);
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: var(--text-dark);
+        }
+
+        .breadcrumb-custom {
+            justify-content: center;
+            background: transparent;
+        }
+
+        .breadcrumb-item a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* --- Content Styles --- */
+        .about-img {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .text-highlight {
+            color: var(--primary-color);
+        }
+
+        .box-vision {
+            padding: 2rem;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            height: 100%;
+            transition: 0.3s;
+        }
+
+        .box-vision:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+
+        /* --- Team Section --- */
+        .team-card {
+            border: none;
+            text-align: center;
+        }
+
+        .team-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1rem;
+            border: 4px solid var(--secondary-color);
+        }
+
+        /* --- CTA Banner Style (Ditambahkan) --- */
+        .cta-banner {
+            background: linear-gradient(90deg, #00897B 0%, #4DB6AC 100%);
+            border-radius: 20px;
+            padding: 4rem 1rem;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            text-align: center;
+        }
+
+        .btn-cta-banner {
+            background-color: white;
+            color: var(--primary-color);
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .btn-cta-banner:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 4rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* --- Floating Buttons --- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-float {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-wa-float {
+            background-color: var(--wa-color);
+        }
+
+        .btn-wa-float:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+        }
+
+        .btn-scroll-top {
+            background-color: var(--primary-color);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PawPalace.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link" href="toko.html">Toko</a></li>
+                    <li class="nav-item"><a class="nav-link" href="konsultasi.html">Konsultasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+                <a href="#contact-footer" class="btn btn-contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="container">
+            <h1 class="page-title">Tentang Kami</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb breadcrumb-custom">
+                    <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Tentang Kami</li>
+                </ol>
+            </nav>
+        </div>
+    </header>
+
+    <section class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Toko PawPalace" class="img-fluid about-img">
+            </div>
+            <div class="col-lg-6">
+                <h6 class="text-uppercase fw-bold text-highlight mb-2">Cerita Kami</h6>
+                <h2 class="fw-bold mb-4">Lebih dari Sekadar Toko Hewan Peliharaan</h2>
+                <p class="text-muted mb-4">
+                    PawPalace didirikan pada tahun 2022 di Tulungagung dengan satu tujuan sederhana: memberikan yang
+                    terbaik bagi sahabat berbulu kita. Kami percaya bahwa hewan peliharaan adalah bagian dari keluarga
+                    yang berhak mendapatkan perawatan, nutrisi, dan kasih sayang terbaik.
+                </p>
+                <p class="text-muted mb-4">
+                    Bermula dari toko kecil, kini kami telah melayani ribuan pemilik hewan di Jawa Timur dengan
+                    menyediakan produk premium dan layanan konsultasi kesehatan terpercaya.
+                </p>
+                <div class="row">
+                    <div class="col-6">
+                        <h2 class="fw-bold text-highlight">5+</h2>
+                        <p>Tahun Pengalaman</p>
+                    </div>
+                    <div class="col-6">
+                        <h2 class="fw-bold text-highlight">2000+</h2>
+                        <p>Pelanggan Puas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-light py-5 my-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="box-vision text-center">
+                        <i class="fas fa-heart fa-3x text-highlight mb-3"></i>
+                        <h4 class="fw-bold">Visi Kami</h4>
+                        <p class="text-muted">Menjadi pusat kebutuhan hewan peliharaan terlengkap dan terpercaya di
+                            Indonesia yang mengutamakan kesejahteraan hewan.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box-vision text-center">
+                        <i class="fas fa-hand-holding-medical fa-3x text-highlight mb-3"></i>
+                        <h4 class="fw-bold">Misi Kami</h4>
+                        <p class="text-muted">Menyediakan produk berkualitas tinggi, edukasi yang tepat bagi pemilik
+                            hewan, dan layanan kesehatan yang profesional.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="box-vision text-center">
+                        <i class="fas fa-smile fa-3x text-highlight mb-3"></i>
+                        <h4 class="fw-bold">Nilai Kami</h4>
+                        <p class="text-muted">Integritas, Kasih Sayang, dan Kualitas. Kami memperlakukan setiap hewan
+                            yang datang seperti hewan kami sendiri.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container py-5 mb-4">
+        <div class="text-center mb-5">
+            <h6 class="text-highlight fw-bold">TIM KAMI</h6>
+            <h2 class="fw-bold">Kenalan dengan Ahlinya</h2>
+        </div>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=300&q=80"
+                        alt="Team 1" class="team-img">
+                    <h5 class="fw-bold">Drh. Budi Santoso</h5>
+                    <p class="text-muted">Dokter Hewan Senior</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80"
+                        alt="Team 2" class="team-img">
+                    <h5 class="fw-bold">Siti Aminah</h5>
+                    <p class="text-muted">Manajer Toko</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="team-card">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=300&q=80"
+                        alt="Team 3" class="team-img">
+                    <h5 class="fw-bold">Rina Maharani</h5>
+                    <p class="text-muted">Spesialis Grooming</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mb-5">
+        <div class="cta-banner">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-3">Siap Memberikan yang Terbaik untuk Hewan Peliharaan Anda?</h2>
+                    <p class="lead mb-4 text-white-50">Kami siap membantu Anda menemukan produk yang tepat atau
+                        memberikan layanan konsultasi kesehatan.</p>
+                    <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20ingin%20tanya-tanya"
+                        target="_blank" class="btn-cta-banner shadow">
+                        <i class="fab fa-whatsapp me-2"></i> Hubungi Kami Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white fw-bold mb-3">PawPalace.</h3>
+                    <p class="text-white-50">Jalan Teuku Umar Block B11<br>Tulungagung, Jawa Timur<br>Indonesia</p>
+                    <small class="text-white-50">©2024 PawPalace Copyright.</small>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Tautan</h5>
+                    <a href="index.html">Beranda</a>
+                    <a href="about.html">Tentang Kami</a>
+                    <a href="toko.html">Toko</a>
+                    <a href="konsultasi.html">Konsultasi</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Network</h5>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">Tokopedia</a>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Lokasi Kami</h5>
+                    <div class="bg-white p-2 rounded d-inline-block">
+                        <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
+                            target="_blank">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
+                                alt="Scan QR Maps" class="img-fluid" width="100">
+                        </a>
+                    </div>
+                    <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float">
+            <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        };
+    </script>
+</body>
+
+</html>

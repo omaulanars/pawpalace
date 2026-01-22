@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko - PawPalace</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- SKEMA WARNA (TEAL & MINT) --- */
+        :root {
+            --primary-color: #00897B;
+            /* Teal */
+            --secondary-color: #E0F2F1;
+            /* Mint Muda */
+            --text-dark: #2D2D2D;
+            --wa-color: #25D366;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #f8f9fa;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            padding-top: 70px;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: var(--secondary-color);
+            padding: 1rem 0;
+            transition: 0.3s;
+        }
+
+        .navbar-brand {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--text-dark);
+            margin: 0 8px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .btn-contact {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-contact:hover {
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+
+        /* --- Shop Styles --- */
+        .shop-header {
+            background-color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Sidebar Filter */
+        .filter-card {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            border: 1px solid #eee;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-title {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .list-group-item {
+            border: none;
+            padding: 0.7rem 1rem;
+            cursor: pointer;
+            color: #666;
+            transition: 0.2s;
+            border-radius: 8px !important;
+            margin-bottom: 5px;
+        }
+
+        .list-group-item:hover {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .list-group-item.active-category {
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Style untuk Tombol Mobile Filter */
+        .btn-mobile-filter {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            font-weight: 700;
+            background: white;
+        }
+
+        .btn-mobile-filter:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        /* Product Card */
+        .product-card {
+            background: #fff;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 15px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: 0.3s;
+        }
+
+        .product-card:hover {
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+            border-color: var(--secondary-color);
+        }
+
+        .product-img {
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .text-price {
+            color: var(--primary-color);
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+
+        .badge-sale {
+            background-color: #ff6b6b;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .btn-product-wa {
+            background-color: transparent;
+            border: 1px solid var(--wa-color);
+            color: var(--wa-color);
+            border-radius: 50px;
+            font-weight: 700;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+            padding: 8px 0;
+        }
+
+        .btn-product-wa:hover {
+            background-color: var(--wa-color);
+            color: white;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 4rem 0 2rem 0;
+            margin-top: 4rem;
+        }
+
+        footer h5 {
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        footer a {
+            color: #b0b0b0;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* --- Floating Buttons --- */
+        .floating-buttons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btn-float {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn-wa-float {
+            background-color: var(--wa-color);
+        }
+
+        .btn-wa-float:hover {
+            background-color: #1ebc57;
+            transform: scale(1.1);
+        }
+
+        .btn-scroll-top {
+            background-color: var(--primary-color);
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">PawPalace.</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">Tentang Kami</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="toko.html">Toko</a></li>
+                    <li class="nav-item"><a class="nav-link" href="konsultasi.html">Konsultasi</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                </ul>
+                <a href="#contact-footer" class="btn btn-contact">Kontak</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="shop-header">
+        <div class="container text-center">
+            <h2 class="fw-bold">Katalog Produk</h2>
+            <p class="text-muted">Temukan kebutuhan terbaik untuk hewan peliharaan Anda</p>
+        </div>
+    </header>
+
+    <section class="container pb-5">
+        <div class="row">
+            <div class="col-lg-3 mb-4">
+                <div class="filter-card">
+                    <h5 class="filter-title">Cari Produk</h5>
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control" placeholder="Cth: Makanan Kucing...">
+                    </div>
+                </div>
+
+                <div class="filter-card">
+                    <button
+                        class="btn btn-mobile-filter w-100 d-lg-none d-flex justify-content-between align-items-center"
+                        type="button" data-bs-toggle="collapse" data-bs-target="#mobileCategoryCollapse"
+                        aria-expanded="false" aria-controls="mobileCategoryCollapse">
+                        <span><i class="fas fa-filter me-2"></i>Filter Kategori</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+
+                    <h5 class="filter-title d-none d-lg-block">Kategori</h5>
+
+                    <div class="collapse d-lg-block mt-3 mt-lg-0" id="mobileCategoryCollapse">
+                        <div class="list-group list-group-flush" id="categoryFilters">
+                            <a href="#" class="list-group-item active-category" data-category="all">Semua Produk</a>
+                            <a href="#" class="list-group-item" data-category="cat-dry">Makanan Kucing (Dry)</a>
+                            <a href="#" class="list-group-item" data-category="cat-wet">Makanan Kucing (Wet)</a>
+                            <a href="#" class="list-group-item" data-category="dog">Makanan Anjing</a>
+                            <a href="#" class="list-group-item" data-category="snack">Snack & Treats</a>
+                            <a href="#" class="list-group-item" data-category="meds">Vitamin & Obat</a>
+                            <a href="#" class="list-group-item" data-category="acc">Aksesoris & Kebersihan</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <span class="text-muted" id="productCount">Menampilkan semua produk</span>
+                    <select class="form-select w-auto" id="sortSelect">
+                        <option value="default" selected>Urutkan: Rekomendasi</option>
+                        <option value="low">Harga Terendah</option>
+                        <option value="high">Harga Tertinggi</option>
+                        <option value="name">Nama (A-Z)</option>
+                    </select>
+                </div>
+
+                <div class="row g-4" id="productsContainer">
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cat-dry" data-price="85000"
+                        data-name="Royal Canin Indoor 27">
+                        <div class="product-card position-relative">
+                            <span class="badge-sale">Promo</span>
+                            <img src="https://placehold.co/200x200/png?text=Royal+Canin" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Royal Canin Indoor 27</h6>
+                                <p class="text-muted small mb-2">Makanan Kucing (Dry)</p>
+                                <p class="text-price mb-3">Rp 85.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Royal%20Canin%20Indoor"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="cat-wet" data-price="7000"
+                        data-name="Whiskas Tuna Sachet">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Whiskas" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Whiskas Tuna Sachet</h6>
+                                <p class="text-muted small mb-2">Makanan Kucing (Wet)</p>
+                                <p class="text-price mb-3">Rp 7.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Whiskas%20Tuna%20Sachet"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="dog" data-price="55000"
+                        data-name="Pedigree Chicken 1kg">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Pedigree" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Pedigree Chicken 1kg</h6>
+                                <p class="text-muted small mb-2">Makanan Anjing</p>
+                                <p class="text-price mb-3">Rp 55.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Pedigree%20Chicken"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="snack" data-price="25000"
+                        data-name="Me-O Creamy Treats">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Me-O" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Me-O Creamy Treats</h6>
+                                <p class="text-muted small mb-2">Snack Kucing</p>
+                                <p class="text-price mb-3">Rp 25.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Me-O%20Creamy"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="acc" data-price="35000"
+                        data-name="Shampoo Anti Kutu">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Shampoo" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Shampoo Anti Kutu</h6>
+                                <p class="text-muted small mb-2">Aksesoris & Kebersihan</p>
+                                <p class="text-price mb-3">Rp 35.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Shampoo%20Anti%20Kutu"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="acc" data-price="20000"
+                        data-name="Pasir Zeolit 5kg">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Pasir" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Pasir Zeolit 5kg</h6>
+                                <p class="text-muted small mb-2">Aksesoris & Kebersihan</p>
+                                <p class="text-price mb-3">Rp 20.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Pasir%20Zeolit"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="acc" data-price="15000"
+                        data-name="Kalung Lonceng">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Kalung" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Kalung Lonceng</h6>
+                                <p class="text-muted small mb-2">Aksesoris & Kebersihan</p>
+                                <p class="text-price mb-3">Rp 15.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Kalung%20Lonceng"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="dog" data-price="18000"
+                        data-name="Bolt Dog Food 1kg">
+                        <div class="product-card position-relative">
+                            <span class="badge-sale">Best Seller</span>
+                            <img src="https://placehold.co/200x200/png?text=Bolt" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Bolt Dog Food 1kg</h6>
+                                <p class="text-muted small mb-2">Makanan Anjing</p>
+                                <p class="text-price mb-3">Rp 18.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Bolt%20Dog%20Food"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-6 product-item" data-category="meds" data-price="45000"
+                        data-name="Vitamin Bulu & Kulit">
+                        <div class="product-card">
+                            <img src="https://placehold.co/200x200/png?text=Vitamin" class="product-img img-fluid"
+                                alt="Produk">
+                            <div>
+                                <h6 class="fw-bold mb-1">Vitamin Bulu & Kulit</h6>
+                                <p class="text-muted small mb-2">Vitamin & Obat</p>
+                                <p class="text-price mb-3">Rp 45.000</p>
+                            </div>
+                            <a href="https://wa.me/62895639068080?text=Halo%20PawPalace,%20saya%20mau%20pesan%20Vitamin"
+                                target="_blank" class="btn-product-wa">
+                                <i class="fab fa-whatsapp me-1"></i> Pesan via WA
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="noProductsMessage" class="text-center py-5 d-none">
+                    <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                    <h5 class="text-muted">Produk tidak ditemukan</h5>
+                    <p class="text-muted small">Coba kata kunci lain atau ganti kategori.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h3 class="text-white fw-bold mb-3">PawPalace.</h3>
+                    <p class="text-white-50">Jalan Teuku Umar Block B11<br>Tulungagung, Jawa Timur<br>Indonesia</p>
+                    <small class="text-white-50">©2024 PawPalace Copyright.</small>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Tautan</h5>
+                    <a href="index.html">Beranda</a>
+                    <a href="about.html">Tentang Kami</a>
+                    <a href="toko.html">Toko</a>
+                    <a href="konsultasi.html">Konsultasi</a>
+                    <a href="blog.html">Blog</a>
+                </div>
+                <div class="col-lg-3 mb-4">
+                    <h5>Network</h5>
+                    <a href="#">Instagram</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">TikTok</a>
+                    <a href="#">Tokopedia</a>
+                </div>
+                <div class="col-lg-2">
+                    <h5>Lokasi Kami</h5>
+                    <div class="bg-white p-2 rounded d-inline-block">
+                        <a href="https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
+                            target="_blank">
+                            <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://www.google.com/maps/search/Jalan+Teuku+Umar+Block+B11+Tulungagung"
+                                alt="Scan QR Maps" class="img-fluid" width="100">
+                        </a>
+                    </div>
+                    <small class="d-block text-white-50 mt-2">Scan untuk Google Maps</small>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="#" id="scrollTopBtn" class="btn-float btn-scroll-top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn-float btn-wa-float">
+            <i class="fab fa-whatsapp fa-lg"></i>
+        </a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // DOM Elements
+        const productsContainer = document.getElementById('productsContainer');
+        const productItems = document.querySelectorAll('.product-item');
+        const searchInput = document.getElementById('searchInput');
+        const categoryLinks = document.querySelectorAll('#categoryFilters .list-group-item');
+        const sortSelect = document.getElementById('sortSelect');
+        const productCount = document.getElementById('productCount');
+        const noProductsMessage = document.getElementById('noProductsMessage');
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+        // State Variables
+        let currentCategory = 'all';
+        let currentSearch = '';
+        let currentSort = 'default';
+
+        // 1. Logic Filtering
+        function filterProducts() {
+            let visibleCount = 0;
+
+            productItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                // Cari di seluruh teks dalam card (nama, deskripsi, harga)
+                const itemFullText = item.textContent.toLowerCase();
+
+                const matchCategory = currentCategory === 'all' || itemCategory === currentCategory;
+                const matchSearch = itemFullText.includes(currentSearch);
+
+                if (matchCategory && matchSearch) {
+                    item.classList.remove('d-none');
+                    visibleCount++;
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+
+            productCount.innerText = `Menampilkan ${visibleCount} produk`;
+            if (visibleCount === 0) {
+                noProductsMessage.classList.remove('d-none');
+            } else {
+                noProductsMessage.classList.add('d-none');
+            }
+
+            sortProducts();
+        }
+
+        // 2. Logic Sorting
+        function sortProducts() {
+            const itemsArray = Array.from(productItems);
+
+            itemsArray.sort((a, b) => {
+                const priceA = parseInt(a.getAttribute('data-price'));
+                const priceB = parseInt(b.getAttribute('data-price'));
+                const nameA = a.getAttribute('data-name').toLowerCase();
+                const nameB = b.getAttribute('data-name').toLowerCase();
+
+                if (currentSort === 'low') {
+                    return priceA - priceB;
+                } else if (currentSort === 'high') {
+                    return priceB - priceA;
+                } else if (currentSort === 'name') {
+                    if (nameA < nameB) return -1;
+                    if (nameA > nameB) return 1;
+                    return 0;
+                } else {
+                    return 0;
+                }
+            });
+
+            itemsArray.forEach(item => {
+                productsContainer.appendChild(item);
+            });
+        }
+
+        // --- Event Listeners ---
+
+        searchInput.addEventListener('keyup', (e) => {
+            currentSearch = e.target.value.toLowerCase();
+            filterProducts();
+        });
+
+        categoryLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                categoryLinks.forEach(l => l.classList.remove('active-category'));
+                e.target.classList.add('active-category');
+
+                currentCategory = e.target.getAttribute('data-category');
+                filterProducts();
+
+                // Opsional: Tutup dropdown mobile setelah klik kategori (untuk UX lebih baik)
+                const mobileCollapse = document.getElementById('mobileCategoryCollapse');
+                if (window.innerWidth < 992 && mobileCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(mobileCollapse, { toggle: false });
+                    bsCollapse.hide();
+                }
+            });
+        });
+
+        sortSelect.addEventListener('change', (e) => {
+            currentSort = e.target.value;
+            sortProducts();
+        });
+
+        window.onscroll = function () {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        };
+    </script>
+</body>
+
+</html>
