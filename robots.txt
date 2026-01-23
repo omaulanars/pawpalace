@@ -1,0 +1,15 @@
+# Robots.txt untuk PawPalace
+# Mengizinkan semua bot pencari (Google, Bing, Yahoo, dll)
+User-agent: *
+
+# Mengizinkan akses ke seluruh halaman publik
+Allow: /
+
+# Mencegah bot mengindeks folder aset yang tidak perlu muncul di hasil pencarian
+# (Opsional, aktifkan jika Anda tidak ingin gambar ikon/script muncul di Google Images/Search)
+# Disallow: /css/
+# Disallow: /js/
+# Disallow: /fonts/
+
+# Lokasi Peta Situs (Sangat Penting untuk SEO)
+Sitemap: https://pawpalace-phi.vercel.app/sitemap.xml
